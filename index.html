@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>나의 하루</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>나의 하루 <span id="dateWeather" class="small-text"></span></h1>
+        <div class="input-section">
+            <select id="ampmInput">
+                <option value="AM">오전</option>
+                <option value="PM">오후</option>
+            </select>
+            <input type="number" id="hourInput" min="1" max="12" value="1">
+            <input type="number" id="minuteInput" min="0" max="59" value="0">
+            <input type="text" id="taskInput" placeholder="할 일을 입력하세요">
+            <button id="addButton">추가</button>
+        </div>
+        <ul id="taskList"></ul>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

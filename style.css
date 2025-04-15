@@ -1,0 +1,177 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f9;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    max-width: 600px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.small-text {
+    font-size: 0.8em;
+    color: #555;
+}
+
+.input-section {
+    display: flex;
+    gap: 6px;
+    margin-bottom: 20px;
+    align-items: center;
+}
+
+/* 시/분/오전오후: 좁게 */
+#ampmInput {
+    width: 50px;
+    flex-shrink: 0;
+}
+
+#hourInput,
+#minuteInput {
+    width: 40px;
+    flex-shrink: 0;
+}
+
+/* 할 일 입력란: 가장 넓게 */
+#taskInput {
+    flex: 1;
+    min-width: 200px;
+}
+
+/* 추가 버튼: 고정 크기 유지 */
+#addButton {
+    flex-shrink: 0;
+    white-space: nowrap;
+    padding: 10px 14px;
+    font-size: 0.9em;
+}
+
+select,
+input[type="number"],
+input[type="text"] {
+    flex: 1;
+    margin-right: 10px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+button {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    font-size: 0.9em;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+button:hover {
+    background-color: #0056b3;
+    transform: translateY(-2px);
+}
+
+button:active {
+    background-color: #004494;
+    transform: translateY(0);
+}
+
+button.complete {
+    background-color: #2196F3;
+}
+
+button.complete:hover {
+    background-color: #1e88e5;
+}
+
+button.delete {
+    background-color: #dc3545;
+}
+
+button.delete:hover {
+    background-color: #c82333;
+}
+
+button.edit {
+    background-color: #ff9800;
+}
+
+button.edit:hover {
+    background-color: #fb8c00;
+}
+
+button.save {
+    background-color: #4CAF50;
+}
+
+button.save:hover {
+    background-color: #45a049;
+}
+
+button.cancel {
+    background-color: #9E9E9E;
+}
+
+button.cancel:hover {
+    background-color: #757575;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+/* 각 할 일 항목(li)의 기본 스타일 */
+li.task-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 10px;
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+    background-color: #f9f9f9;
+}
+
+/* 완료된 항목 스타일 */
+li.completed .task-text {
+    text-decoration: line-through;
+    color: #888;
+}
+
+/* 할 일 텍스트: 줄바꿈 허용 + 공간 최대 차지 */
+.task-text {
+    flex: 1;
+    word-break: break-word;
+    white-space: pre-wrap;
+    min-width: 0;
+}
+
+/* 버튼 컨테이너: 오른쪽 고정 */
+.button-container {
+    display: flex;
+    flex-shrink: 0;
+    gap: 6px;
+}
+
+.edit-hour,
+.edit-minute {
+    width: 40px;
+}
+
+.edit-task {
+    width: 200px;
+}
