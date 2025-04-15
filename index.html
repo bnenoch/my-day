@@ -29,6 +29,47 @@
         </button>
       </a>
     </div>
+    <!-- 👉 자동으로 블로그 카드 표시되는 영역 -->
+    <div id="blogCards" style="margin-top: 30px;"></div>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script>
+      async function loadBlogCards() {
+        const sheetId = '1KuE6SJIhC_sulrdS-kOMDNaSN3k57fAVfEUVSTsIB4Y';
+        const url = `https://docs.google.com/spreadsheets/d/${sheetId}/gviz/tq?tqx=out:json`;
+
+        try {
+          const response = await axios.get(url);
+          const data = JSON.parse(response.data.substring(47).slice(0, -2));
+          const rows = data.table.rows;
+
+          const container = document.getElementById('blogCards');
+          container.innerHTML = '<h3 style="text-align:center;">📝 자동 최신 리뷰</h3><div class="card-list"></div>';
+          const cardList = container.querySelector('.card-list');
+
+          rows.forEach(row => {
+            const title = row.c[0]?.v || '';
+            const link = row.c[1]?.v || '';
+            const image = row.c[2]?.v || '';
+            const desc = row.c[3]?.v || '';
+
+            const card = document.createElement('div');
+            card.className = 'card';
+            card.innerHTML = `
+              <img src="${image}" alt="${title}" class="card-img">
+              <h4 class="card-title">${title}</h4>
+              <p class="card-desc">${desc}</p>
+              <a href="${link}" target="_blank" class="card-button">리뷰 보러가기 →</a>
+            `;
+            cardList.appendChild(card);
+          });
+        } catch (err) {
+          document.getElementById('blogCards').innerHTML = '<p style="color:red; text-align:center;">블로그 리뷰를 불러오지 못했습니다.</p>';
+          console.error(err);
+        }
+      }
+
+      loadBlogCards();
+    </script>
     <script src="script.js"></script>    
 </body>
 </html>
