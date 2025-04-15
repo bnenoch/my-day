@@ -35,7 +35,7 @@
           const rows = data.table.rows;
 
           const container = document.getElementById('blogCards');
-          container.innerHTML = '<h3 style="text-align:center;">📝 자동 최신 리뷰</h3><div class="card-list"></div>';
+          container.innerHTML = '<div class="card-list"></div>';
           const cardList = container.querySelector('.card-list');
 
           rows.forEach(row => {
